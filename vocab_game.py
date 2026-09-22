@@ -23,33 +23,35 @@ def reset_game():
 # ----------------------------------------------------
 @st.dialog("📊 สรุปผลการเล่นเกม")
 def show_result_dialog(ans1, ans2):
- st.balloons()
- score = 0
+st.balloons()
+score = 0
 
 u_ans1 = ans1.strip().lower()
 u_ans2 = ans2.strip().lower()
-# ตรวจข ้ อ 1
-if u_ans1 == "apple":
- st.success("✅ ข ้ อ 1: ถูกต ้ อง")
- score += 1
-else:
- st.error(f"❌ ข ้ อ 1: ยังไม่ถูกต ้ อง (คุณตอบ '{u_ans1}')")
+   
+ # ตรวจข ้ อ 1
+ if u_ans1 == "apple":
+    st.success("✅ ข ้ อ 1: ถูกต ้ อง")
+    score += 1
+ else:
+   st.error(f"❌ ข ้ อ 1: ยังไม่ถูกต ้ อง (คุณตอบ '{u_ans1}')")
 
-# ตรวจข ้ อ 2
-if u_ans2 == "fish":
- st.success("✅ ข ้ อ 2: ถูกต ้ อง")
- score += 1
-else:
- st.error(f"❌ ข ้ อ 2: ยังไม่ถูกต ้ อง (คุณตอบ '{u_ans2}')")
-# ✏ [พื้นที่สำาหรับนักเรียน]: เพิ่มตรวจข ้ อ 3, 4 ตรงนี้
+ # ตรวจข ้ อ 2
+ if u_ans2 == "fish":
+     st.success("✅ ข ้ อ 2: ถูกต ้ อง")
+     score += 1
+ else:
+   st.error(f"❌ ข ้ อ 2: ยังไม่ถูกต ้ อง (คุณตอบ '{u_ans2}')")
+    
+ # ✏ [พื้นที่สำาหรับนักเรียน]: เพิ่มตรวจข ้ อ 3, 4 ตรงนี้
 
-st.info(f"🏆 ได ้ คะแนนรวม: {score} คะแนน")
+ st.info(f"🏆 ได ้ คะแนนรวม: {score} คะแนน")
 
 
-if score == 2:
- st.success("🎉 You win!")
-else:
- st.error("💀 You lose!")
+ if score == 2:
+     st.success("🎉 You win!")
+ else:
+     st.error("💀 You lose!")
 
 # ----------------------------------------------------
 # 1. ปุ ่ มเริ่มเล่นเกม
@@ -60,18 +62,18 @@ st.button("🎮 เริ่มเล่นเกม", onclick=reset__game)
 if "start" in st.session_state and not st.session_state.get("is_ended", False):
     time_left = int(30 - (time.time() - st.session_state.start))
 
-if time_left > 0:
-   st.error(f"⏳ เหลือเวลา: {time_left}วินาที")
-else:
-   st.session_state.is_ended = True
-   st.rerun()
+    if time_left > 0:
+        st.error(f"⏳ เหลือเวลา: {time_left}วินาที")
+    else:
+      st.session_state.is_ended = True
+      st.rerun()
     
 st.divider()
 
 # 3. ช่องรับคำาตอบ (ใช ้ value ผูกกับตัวแปรตรงๆ เพื่อสั่งเคลียร์ได ้ )
 ans1 = st.text_input(
   "ข ้ อ 1: An`a_ _l e`a day keeps the doctor away.🍎",
-value=st.session_state.ans1_val,
+   value=st.session_state.ans1_val,
 )
 ans2 = st.text_input(
   "ข ้ อ 2: Cats love to eat `f_s h`.🐟",
