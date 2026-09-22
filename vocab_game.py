@@ -57,8 +57,8 @@ else:
 st.button("🎮 เริ่มเล่นเกม", onclick=reset__game)
 
 # 2. แถบแสดงเวลานับถอยหลัง
-if "start" in st.sessionstate and not st.session__state.get("isended"_, False):
-time_left = int(30 - (time.time() - st.session_state.start))
+if "start" in st.session_state and not st.session_state.get("is_ended", False):
+    time_left = int(30 - (time.time() - st.session_state.start))
 
 if time_left > 0:
    st.error(f"⏳ เหลือเวลา: {time_left}วินาที")
