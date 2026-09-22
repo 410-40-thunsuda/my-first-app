@@ -7,7 +7,7 @@ st.title("⏱ เกมเติมศัพท์จับเวลา")
 if "ans1_val" not in st.session_state:
    st.session_state.ans1_val = ""
 if "ans2_val" not in st.session_state:
-st.session_state.ans2_val = ""
+   st.session_state.ans2_val = ""
 
 
 # 📌 ฟังก์ชันเคลียร์ค่าเมื่อกดปุ ่ มเริ่มใหม่
