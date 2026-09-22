@@ -177,3 +177,5 @@ if st.session_state.is_ended:
 
 
 st.divider()
+
+st.write("นางสาวธัญสุดา แก้ววิเชียร เลขที่ 40 ม.4/10")
