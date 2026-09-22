@@ -30,7 +30,7 @@ def show_result_dialog(ans1, ans2):
   u_ans2 = ans2.strip().lower()
    
  # ตรวจข ้ อ 1
- if u_ans1 == "apple":
+ if u_ans1=="apple";
     st.success("✅ ข ้ อ 1: ถูกต ้ อง")
     score += 1
  else:
